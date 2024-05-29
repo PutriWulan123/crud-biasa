@@ -10,7 +10,7 @@ class DevisiController extends Controller
         public function index()
         {
         $data = Devisi::all();
-        return view('data_devisi', compact('data'));
+        return view('devisi.data_devisi', compact('data'));
         }
 
         public function tambahdevisi() 
