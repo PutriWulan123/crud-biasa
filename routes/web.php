@@ -38,12 +38,12 @@ Route::middleware(['auth'])->group(function () {
 //     Route::get('/pegawai', 'index')->middleware('can:read role');
 // });
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai');
-Route::get('/tambahpegawai', [PegawaiController::class, 'tambahpegawai'])->name('tambahpegawai');
-Route::post('/insertdata_pegawai', [PegawaiController::class, 'insertdata_pegawai'])->name('insertdata_pegawai');
-Route::get('/tampilkandata_pegawai/{id}', [PegawaiController::class, 'tampilkandata_pegawai'])->name('tampilkandata_pegawai');
-Route::post('/updatedata_pegawai/{id}', [PegawaiController::class, 'updatedata_pegawai'])->name('updatedata_pegawai');
+Route::get('/tambahpegawai', [PegawaiController::class, 'tambahpegawai'])->name('pegawai.tambahpegawai');
+Route::post('/insertdata_pegawai', [PegawaiController::class, 'insertdata_pegawai'])->name('pegawai.insertdata_pegawai');
+Route::get('/tampilkandata_pegawai/{id}', [PegawaiController::class, 'tampilkandata_pegawai'])->name('pegawai.tampilkandata_pegawai');
+Route::post('/updatedata_pegawai/{id}', [PegawaiController::class, 'updatedata_pegawai'])->name('pegawai.updatedata_pegawai');
 Route::get('/deletedata_pegawai/{id}', [PegawaiController::class, 'deletedata_pegawai'])->name('deletedata_pegawai');
-Route::get('/show/{id}', [PegawaiController::class, 'show'])->name('show');
+Route::get('/show/{id}', [PegawaiController::class, 'show'])->name('pegawai.show');
 
 
 //gol devisi

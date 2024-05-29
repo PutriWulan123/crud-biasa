@@ -16,7 +16,7 @@ class PegawaiController extends Controller
         // $pegawai = Pegawai::with('devisi');
 
         // Mengembalikan view dengan data pegawais
-        return view('data_pegawai', compact('pegawai'));
+        return view('pegawai.index', compact('pegawai'));
     }
 
     public function tambahpegawai(){
@@ -25,12 +25,12 @@ class PegawaiController extends Controller
 
     public function insertdata_pegawai(Request $request){
         Pegawai::create($request->all());
-        return redirect()->route('pegawai')->with('sukses', 'Data Berhasil Ditambahkan');
+        return redirect()->route('pegawai.pegawai')->with('sukses', 'Data Berhasil Ditambahkan');
     }
 
     public function tampilkandata_pegawai($id){
         $data = Pegawai::find($id);
-            return view('tampil_datapegawai', compact('data'));
+            return view('pegawai.tampil_datapegawai', compact('data'));
         
     }
 
@@ -44,16 +44,8 @@ class PegawaiController extends Controller
         $data->delete();
         return redirect()->route('pegawai')->with('sukses', 'Data Berhasil Dihapus');
     }
+    
     public function show($id)
-    // {
-    //   $pegawai = Pegawai::findOrFail($id);
-
-    // //     // return view('data_pegawai', compact('pegawai'));
-    // //     return view('data_pegawai', compact('pegawai'));
-    // // }
-    // //$pegawai = Pegawai::all(); // atau Pegawai::find($id);
-    // return view('data_pegawai', compact('pegawai'));
-    // }
     {
         $pegawai = Pegawai::find($id);
 
@@ -61,6 +53,6 @@ class PegawaiController extends Controller
             return redirect()->route('show')->with('error', 'Pegawai tidak ditemukan');
         }
 
-        return view('data_pegawai', compact('pegawai'));
+        return view('pegawai.detail_datapegawai', compact('pegawai'));
     }
 }
